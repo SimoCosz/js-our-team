@@ -1,4 +1,5 @@
 const teamContainer = document.querySelector('.team-container')
+const addMemberButton = document.querySelector('#addMemberButton')
 const team = [
   {
     name: 'Wayne Barnett',
@@ -32,6 +33,16 @@ const team = [
   },
 ];
 
+function createNewMember (){
+  const newMember = {
+    name : document.getElementById('name').value,
+    role : document.getElementById('role').value,
+    image : document.getElementById('image').value,
+  }
+  team.push(newMember);
+
+}
+
 for (let i = 0; i < team.length; i++){
   const name = team[i].name ;
   const role = team[i].role ;
@@ -52,7 +63,9 @@ for (let i = 0; i < team.length; i++){
       </div>
   </div>
   `
-
-
   teamContainer.innerHTML += memberCard
 }
+
+addMemberButton.addEventListener('click', createNewMember)
+
+console.log(team)
